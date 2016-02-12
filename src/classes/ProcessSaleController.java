@@ -12,7 +12,6 @@ public class ProcessSaleController {
 
     public void makeNewSale() {
         sale.resetSale();
-        System.out.println("making new sale");
     }
 
     public void addItem(int id, int quantity) {
