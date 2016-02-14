@@ -204,7 +204,7 @@ public class SaleJFrame extends javax.swing.JFrame {
         double total = processSaleController.getSale().getTotal();
         totalOutput.setText(String.valueOf(total));
 
-        Object[] row = {itemId, SaleFactory.getProductSpecification(itemId).getName(), SaleFactory.getProductSpecification(itemId).getPrice(), itemQuantity, itemQuantity * SaleFactory.getProductSpecification(itemId).getPrice()};
+        Object[] row = { processSaleController.getSale().getListLength(), SaleFactory.getProductSpecification(itemId).getName(), SaleFactory.getProductSpecification(itemId).getPrice(), itemQuantity, itemQuantity * SaleFactory.getProductSpecification(itemId).getPrice()};
         DefaultTableModel model = (DefaultTableModel) saleTable.getModel();
         model.addRow(row);
         
@@ -232,7 +232,6 @@ public class SaleJFrame extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-//    public static void main(String args[]) {
     public static void main() {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

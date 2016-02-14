@@ -13,7 +13,12 @@ public class Sale {
     public void addSaleLineItem(int id, int quantity) {
         sli.add(new SalesLineItem(id, quantity));
     }
-
+    public  LinkedList<SalesLineItem> getList(){
+        return this.sli;
+    }
+    public int getListLength(){
+        return this.sli.size();
+    }
     public double getTotal() {
         double total = 0.0;
         for (int i = 0; i < sli.size(); i++) {
