@@ -8,7 +8,7 @@ public class ProcessSaleController {
 
     public ProcessSaleController() {
         sale = new Sale();
-    }
+       }
 
     public void makeNewSale() {
         sale.resetSale();
@@ -23,7 +23,7 @@ public class ProcessSaleController {
     }
 
     public ProductSpecification getProductSpecification(int id) {
-        return SaleFactory.getProductSpecification(id);
+        return SaleFactory.getInstance().getProductSpecification(id);
     }
 
 }

@@ -8,7 +8,7 @@ public class SalesLineItem {
     private int quantity = 0;
 
     public SalesLineItem(int id, int quantity) {
-        ps = SaleFactory.getProductSpecification(id);
+        ps = SaleFactory.getInstance().getProductSpecification(id);
         this.quantity = quantity;
     }
 

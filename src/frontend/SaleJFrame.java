@@ -26,6 +26,10 @@ public class SaleJFrame extends javax.swing.JFrame {
         addItemButton = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         totalOutput = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        vatOutput = new javax.swing.JTextField();
+        grandTotalOutput = new javax.swing.JTextField();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -48,19 +52,9 @@ public class SaleJFrame extends javax.swing.JFrame {
 
         itemIdInput.setToolTipText("Enter Item Id");
         itemIdInput.setMaximumSize(new java.awt.Dimension(6, 20));
-        itemIdInput.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                itemIdInputActionPerformed(evt);
-            }
-        });
 
         quantityInput.setToolTipText("Enter quantity of the item");
         quantityInput.setMaximumSize(new java.awt.Dimension(6, 20));
-        quantityInput.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                quantityInputActionPerformed(evt);
-            }
-        });
 
         saleTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -109,6 +103,10 @@ public class SaleJFrame extends javax.swing.JFrame {
         totalOutput.setEditable(false);
         totalOutput.setFocusable(false);
 
+        jLabel4.setText("VAT");
+
+        jLabel5.setText("Grand Total");
+
         jMenu1.setText("File");
 
         jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F4, java.awt.event.InputEvent.ALT_MASK));
@@ -131,11 +129,6 @@ public class SaleJFrame extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(totalOutput, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(29, 29, 29)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -149,7 +142,18 @@ public class SaleJFrame extends javax.swing.JFrame {
                                     .addComponent(itemIdInput, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(quantityInput, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(0, 0, Short.MAX_VALUE))
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 385, Short.MAX_VALUE))))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 386, Short.MAX_VALUE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel5))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(totalOutput, javax.swing.GroupLayout.DEFAULT_SIZE, 106, Short.MAX_VALUE)
+                            .addComponent(vatOutput)
+                            .addComponent(grandTotalOutput))))
                 .addGap(64, 64, 64))
         );
         layout.setVerticalGroup(
@@ -168,14 +172,22 @@ public class SaleJFrame extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(addItemButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 215, Short.MAX_VALUE)
-                .addGap(2, 2, 2)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(6, 6, 6)
                         .addComponent(jLabel3))
-                    .addComponent(totalOutput))
-                .addContainerGap())
+                    .addComponent(totalOutput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(vatOutput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(grandTotalOutput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
 
         getAccessibleContext().setAccessibleParent(this);
@@ -183,39 +195,42 @@ public class SaleJFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void itemIdInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemIdInputActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_itemIdInputActionPerformed
-
-    private void quantityInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quantityInputActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_quantityInputActionPerformed
-
     private void addItemButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addItemButtonActionPerformed
-        String inputText = itemIdInput.getText();
-        // add functionlities for id is integer or not
-        int itemId = Integer.parseInt(inputText);
-        // add functionalities for existence
-        inputText = quantityInput.getText();
-        // add functionlities for id is integer or not
-        int itemQuantity = Integer.parseInt(inputText);
-        processSaleController.addItem(itemId, itemQuantity);
+        String itemIdInputText = itemIdInput.getText();
+        String quantityInputText = quantityInput.getText();
+        if (!itemIdInputText.isEmpty() && !quantityInputText.isEmpty()) {
+            
+         
+            int itemId = Integer.parseInt(itemIdInputText);
+            int itemQuantity = Integer.parseInt(quantityInputText);
 
-        double total = processSaleController.getSale().getTotal();
-        totalOutput.setText(String.valueOf(total));
+            
+            processSaleController.addItem(itemId, itemQuantity);
 
-        Object[] row = { processSaleController.getSale().getListLength(), SaleFactory.getProductSpecification(itemId).getName(), SaleFactory.getProductSpecification(itemId).getPrice(), itemQuantity, itemQuantity * SaleFactory.getProductSpecification(itemId).getPrice()};
-        DefaultTableModel model = (DefaultTableModel) saleTable.getModel();
-        model.addRow(row);
-        
-        quantityInput.setText("");
-        itemIdInput.setText("");
+            int total = processSaleController.getSale().getTotal();
+            totalOutput.setText(String.valueOf(total));
+
+            int grandTotal = processSaleController.getSale().getGrandTotal();
+            grandTotalOutput.setText(String.valueOf(grandTotal));
+
+            int vat = processSaleController.getSale().getVATAmount();
+            vatOutput.setText(String.valueOf(vat));
+
+            Object[] row = {processSaleController.getSale().getListLength(), SaleFactory.getInstance().getProductSpecification(itemId).getName(), SaleFactory.getInstance().getProductSpecification(itemId).getPrice(), itemQuantity, itemQuantity * SaleFactory.getInstance().getProductSpecification(itemId).getPrice()};
+            DefaultTableModel model = (DefaultTableModel) saleTable.getModel();
+            model.addRow(row);
+
+            quantityInput.setText("");
+            itemIdInput.setText("");
+        }
     }//GEN-LAST:event_addItemButtonActionPerformed
 
     private void newSaleButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newSaleButtonActionPerformed
         // TODO add your handling code here:
         processSaleController.makeNewSale();
         totalOutput.setText("");
+        vatOutput.setText("");
+        grandTotalOutput.setText("");
         quantityInput.setText("");
         itemIdInput.setText("");
         DefaultTableModel model = (DefaultTableModel) saleTable.getModel();
@@ -232,7 +247,7 @@ public class SaleJFrame extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main() {
+    public static void main(String[] args) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -260,7 +275,6 @@ public class SaleJFrame extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 processSaleController = new ProcessSaleController();
-                SaleFactory.populate();
                 new SaleJFrame().setVisible(true);
             }
         });
@@ -268,10 +282,13 @@ public class SaleJFrame extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addItemButton;
+    private javax.swing.JTextField grandTotalOutput;
     private javax.swing.JTextField itemIdInput;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
@@ -280,6 +297,7 @@ public class SaleJFrame extends javax.swing.JFrame {
     private javax.swing.JTextField quantityInput;
     private javax.swing.JTable saleTable;
     private javax.swing.JTextField totalOutput;
+    private javax.swing.JTextField vatOutput;
     // End of variables declaration//GEN-END:variables
 
 }
